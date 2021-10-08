@@ -24,7 +24,7 @@
 <script setup>
 import { ref } from "vue";
 import router from "@/routes";
-import {hello} from "@/apis/user"
+import { hello } from "@/apis/user"
 
 defineProps({
   msg: String,

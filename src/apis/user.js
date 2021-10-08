@@ -1,8 +1,8 @@
 import { creatRequest } from '@/utils/request'
 
-export function hello(data) {
+export function hello() {
   return creatRequest({
-    url: `/user/hello`,
-    method: 'get'
+    'url': '/user/hello',
+    'method': 'get'
   })
 }

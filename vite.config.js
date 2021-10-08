@@ -12,14 +12,14 @@ export default defineConfig(({ mode }) => {
   return {
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src'),
-      },
+        '@': resolve(__dirname, 'src')
+      }
     },
     plugins: [
       vue(),
       Components({
-        resolvers: [ElementPlusResolver()],
-      }),
+        resolvers: [ElementPlusResolver()]
+      })
     ],
     server: {
       port: port,
@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           ws: true,
           rewrite: (path) => path.replace(/^\/api/, '/')
-        },
+        }
       }
     }
   }
