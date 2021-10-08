@@ -7,7 +7,7 @@ export const routes = [
     {
         path: '/about',
         meta: { title: 'About' },
-        component: () => import('../views/NotFound.vue'),
+        component: () => import('../views/Test.vue'),
     },
     {
         path: '/:path(.*)',
