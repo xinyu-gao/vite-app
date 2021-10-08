@@ -1,3 +1,5 @@
+import {createRouter, createWebHistory} from 'vue-router';
+
 export const routes = [
     {
         path: '/',
@@ -14,3 +16,8 @@ export const routes = [
         component: () => import('../views/NotFound.vue')
     },
 ]
+
+export default createRouter({
+    history: createWebHistory(),
+    routes,
+})

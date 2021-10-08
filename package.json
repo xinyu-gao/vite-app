@@ -2,7 +2,7 @@
   "name": "vite-app",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -10,6 +10,7 @@
     "element-plus": "^1.1.0-beta.19",
     "lodash": "^4.17.21",
     "unplugin-vue-components": "^0.15.6",
+    "axios": "^0.22.0",
     "vue": "^3.2.19",
     "vue-router": "^4.0.11"
   },
