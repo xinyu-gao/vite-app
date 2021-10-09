@@ -1,20 +1,22 @@
 module.exports = {
-  'root': true,
-  'parser': 'vue-eslint-parser',
-  'parserOptions': {
+  root: true,
+  parser: 'vue-eslint-parser',
+  parserOptions: {
     'parser': 'babel-eslint',
-    // 'ecmaVersion': 6
     'sourceType': 'module'
   },
-  'env': {
+  env: {
     'browser': true,
     'node': true,
     'es6': true
   },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
+  },
   rules: {
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/multiline-html-element-content-newline': 'off',
-    'vue/no-v-html': 'off',
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,
@@ -123,8 +125,6 @@ module.exports = {
     'no-this-before-super': 2,
     'no-throw-literal': 2,
     'no-trailing-spaces': 2,
-    'no-undef': 2,
-    'no-undef-init': 2,
     'no-unexpected-multiline': 2,
     'no-unmodified-loop-condition': 2,
     'no-unneeded-ternary': [2, {
@@ -132,10 +132,6 @@ module.exports = {
     }],
     'no-unreachable': 2,
     'no-unsafe-finally': 2,
-    'no-unused-vars': [2, {
-      'vars': 'all',
-      'args': 'none'
-    }],
     'no-useless-call': 2,
     'no-useless-computed-key': 2,
     'no-useless-constructor': 2,

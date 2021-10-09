@@ -1,7 +1,13 @@
 import axios from 'axios'
 import { ElNotification } from 'element-plus'
 
-const baseURL = import.meta.env.VITE_API_BASE
+interface resData{
+  code: number;
+  message: string;
+  data: object;
+}
+
+const baseURL: string = 'import.meta\u200b.env.VITE_API_BASE'
 
 export const creatRequest = axios.create({
   'baseURL': baseURL,
@@ -26,7 +32,7 @@ creatRequest.interceptors.request.use(config => {
 
 creatRequest.interceptors.response.use(data => {
   // console.log(data)
-  const resData = data && data.data || {}
+  const resData: resData = data && data.data || {}
   if (resData && resData.code === 200) {
     return Promise.resolve(resData.data)
   } else if (resData.code === 401) {
@@ -41,19 +47,13 @@ creatRequest.interceptors.response.use(data => {
       'message': '服务器连接失败',
       'type': 'error'
     })
-  }else{
-    ElNotification({
-      'title': '错误',
-      'message': '服务器连接失败',
-      'type': 'error'
-    })
   }
   return Promise.reject(err)
 })
 
 export const creatRequestForFile = axios.create({
   // 请求地址
-  'baseURL': import.meta.env.VITE_API_BASE,
+  'baseURL': baseURL,
   // 请求超时时间
   'timeout': 7000,
   'method': 'post'
@@ -78,14 +78,14 @@ creatRequestForFile.interceptors.request.use(config => {
 })
 
 creatRequestForFile.interceptors.response.use(data => {
-  data = data && data.data || {}
+  const resData: resData = data && data.data || {}
   // 返回 200 代码，正常返回 data，否则抛出异常
-  if (data && data.code === 200) {
-    return Promise.resolve(data.data)
-  } else if (data.code === 401) {
-    return Promise.resolve(data.data)
+  if (resData && resData.code === 200) {
+    return Promise.resolve(resData.data)
+  } else if (resData.code === 401) {
+    return Promise.resolve(resData.data)
   }
-  return Promise.reject(data.message)
+  return Promise.reject(resData.message)
 }, err => {
   if (err.response.status === 500) {
     ElNotification({

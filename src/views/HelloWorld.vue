@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-
     <el-button type="primary">Primary</el-button>
-
     <p>
       <a href="https://vitejs.dev/guide/features.html" target="_blank">
         Vite Documentation
@@ -17,33 +15,32 @@
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </p>
-    <el-button @click="toOther"></el-button>
+    <el-button type="primary" @click="toOther">To About</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import router from "@/routes/";
-import { hello } from "@apis/user/"
+import { ref } from 'vue'
+import router from '@/routes'
+import { hello } from '@/apis/user'
 
 defineProps({
-  msg: String,
-});
+  msg: String
+})
 
-const count = ref(0);
+const count = ref(0)
 
 function toOther() {
-  // hello()
-  // .then(data =>{
-  //   console.log(data)
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  // })
-  router.push("/about");
+  hello()
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  router.push('/about')
 }
 </script>
-
 
 <style scoped>
 a {

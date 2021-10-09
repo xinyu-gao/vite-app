@@ -38,8 +38,8 @@ export default defineComponent({
       checked5: ref(false),
       checked6: ref(false),
       checked7: ref(false),
-      checked8: ref(false),
+      checked8: ref(false)
     }
-  },
+  }
 })
 </script>
