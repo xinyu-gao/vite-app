@@ -23,11 +23,15 @@
 import { ref } from 'vue'
 import router from '@/routes'
 import { hello } from '@/apis/user'
+import { userStore } from '@/stores/user'
 
 defineProps({
   msg: String
 })
-
+const user = userStore()
+console.log(user.getCounter)
+user.plusOne()
+console.log(user.getCounter)
 const count = ref(0)
 
 function toOther() {
