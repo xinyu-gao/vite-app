@@ -17,14 +17,14 @@
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </p>
-    <button @click="toOther"></button>
+    <el-button @click="toOther"></el-button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
-import router from "@/routes";
-import { hello } from "@/apis/user"
+import router from "@/routes/";
+import { hello } from "@apis/user/"
 
 defineProps({
   msg: String,
@@ -33,14 +33,14 @@ defineProps({
 const count = ref(0);
 
 function toOther() {
-  hello()
-  .then(data =>{
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
-  // router.push("/about");
+  // hello()
+  // .then(data =>{
+  //   console.log(data)
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  // })
+  router.push("/about");
 }
 </script>
 

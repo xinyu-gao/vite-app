@@ -15,6 +15,7 @@ creatRequest.interceptors.request.use(config => {
   config.data = JSON.stringify(config.data)
   return Promise.resolve(config)
 }, error => {
+  console.log(error)
   ElNotification({
     'title': '错误',
     'message': '请求超时',
@@ -33,7 +34,14 @@ creatRequest.interceptors.response.use(data => {
   }
   return Promise.reject(resData.message)
 }, err => {
+  console.log(err)
   if (err.response.status === 500) {
+    ElNotification({
+      'title': '错误',
+      'message': '服务器连接失败',
+      'type': 'error'
+    })
+  }else{
     ElNotification({
       'title': '错误',
       'message': '服务器连接失败',
